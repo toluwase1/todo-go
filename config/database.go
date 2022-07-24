@@ -21,6 +21,8 @@ func Database() *sql.DB {
 		log.Println("mysql connection was successful")
 	}
 
+	//note: in order not to get an error while running your app a second time
+	// execute this query on line 26 instead: `CREATE DATABASE IF NOT EXISTS todoapp;` 
 	_, err2 := database.Exec(`CREATE DATABASE todoapp`)
 	if err2 != nil {
 		log.Println("an error occured when trying to create your database", err2)
